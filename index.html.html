@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Candy Shop | K. Vishali</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#fff8fc;
+color:#333;
+overflow-x:hidden;
+}
+
+header{
+background:linear-gradient(135deg,#ff5fb2,#ff95d5);
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 4px 15px rgba(255,20,147,.2);
+}
+
+.logo{
+font-family:'Pacifico',cursive;
+font-size:28px;
+font-weight:400;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+margin-left:25px;
+font-weight:600;
+transition:opacity .2s;
+}
+
+nav a:hover{
+opacity:.8;
+}
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:70px 8%;
+flex-wrap:wrap;
+background:radial-gradient(circle at 80% 20%, #ffe0f0 0%, #fff8fc 60%);
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.pink{
+color:#ff1493;
+font-weight:bold;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.7;
+margin-bottom:20px;
+color:#555;
+}
+
+.hero-tags{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.hero-tags span{
+background:white;
+color:#ff1493;
+padding:6px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+box-shadow:0 4px 10px rgba(255,20,147,.15);
+}
+
+.btn{
+background:#ff1493;
+color:white;
+padding:14px 35px;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+display:inline-block;
+box-shadow:0 8px 20px rgba(255,20,147,.35);
+transition:transform .2s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.hero-image{
+width:340px;
+max-width:100%;
+}
+
+section{
+padding:70px 8%;
+}
+
+.title{
+text-align:center;
+font-size:36px;
+margin-bottom:10px;
+color:#ff1493;
+}
+
+.subtitle{
+text-align:center;
+color:#888;
+margin-bottom:45px;
+font-size:16px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+padding:25px 15px;
+box-shadow:0 10px 25px rgba(255,20,147,.08);
+text-align:center;
+transition:transform .25s, box-shadow .25s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(255,20,147,.18);
+}
+
+.card svg{
+width:100%;
+height:130px;
+}
+
+.card h3{
+margin-top:12px;
+font-size:16px;
+color:#333;
+}
+
+.card p{
+font-size:13px;
+color:#999;
+margin-top:4px;
+}
+
+.why{
+background:#ffe6f3;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.why-grid .item{
+background:white;
+padding:30px 20px;
+border-radius:16px;
+}
+
+.why-grid .icon{
+font-size:36px;
+margin-bottom:12px;
+}
+
+.why-grid h4{
+color:#ff1493;
+margin-bottom:8px;
+font-size:18px;
+}
+
+.why-grid p{
+font-size:14px;
+color:#777;
+line-height:1.6;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about-visual{
+background:linear-gradient(135deg,#ffd6ec,#ffe9f5);
+border-radius:20px;
+padding:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.about-visual svg{
+width:100%;
+max-width:280px;
+}
+
+.about-text h2{
+font-size:38px;
+margin-bottom:20px;
+color:#ff1493;
+}
+
+.about-text p{
+line-height:1.8;
+color:#555;
+margin-bottom:15px;
+}
+
+.contact{
+background:linear-gradient(135deg,#ff5fb2,#ff95d5);
+text-align:center;
+color:white;
+}
+
+.contact h2{
+font-size:35px;
+margin-bottom:10px;
+}
+
+.contact .subtitle{
+color:#ffe6f3;
+}
+
+.contact-card{
+background:white;
+color:#333;
+max-width:420px;
+margin:0 auto;
+border-radius:18px;
+padding:35px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.contact-card p{
+margin:12px 0;
+font-size:15px;
+}
+
+.contact-card strong{
+color:#ff1493;
+}
+
+footer{
+background:#ff1493;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-tags{
+justify-content:center;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">Mini Candy Shop 🍬</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Hello! I'm <span class="pink">K. Vishali</span></h1>
+
+<p>
+Welcome to <span class="pink">Mini Candy Shop</span> — handcrafted candies,
+cake pops, and sweet treats made with love for birthdays, weddings, baby
+showers, and every little celebration in between. Every piece is designed
+to look as magical as it tastes.
+</p>
+
+<div class="hero-tags">
+<span>🍭 Handmade Daily</span>
+<span>🎂 Custom Orders</span>
+<span>🎁 Party Favors</span>
+<span>🌈 100% Fresh</span>
+</div>
+
+<a href="#gallery" class="btn">Explore Shop</a>
+
+</div>
+
+<div class="hero-image">
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+<circle cx="150" cy="150" r="140" fill="#ffe6f3"/>
+<circle cx="110" cy="120" r="45" fill="#ff85c1"/>
+<circle cx="110" cy="120" r="45" fill="url(#swirl1)"/>
+<rect x="105" y="160" width="10" height="70" rx="5" fill="#e88b4b"/>
+<circle cx="200" cy="150" r="38" fill="#ffd54f"/>
+<rect x="196" y="185" width="8" height="60" rx="4" fill="#e88b4b"/>
+<circle cx="160" cy="90" r="30" fill="#7ed6a5"/>
+<rect x="157" y="118" width="6" height="50" rx="3" fill="#e88b4b"/>
+<defs>
+<radialGradient id="swirl1" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#ffb3d9"/>
+<stop offset="100%" stop-color="#ff5fa8"/>
+</radialGradient>
+</defs>
+</svg>
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2 class="title">Our Sweet Collection</h2>
+<p class="subtitle">Every treat handmade with premium ingredients and a whole lot of sweetness</p>
+
+<div class="gallery">
+
+<div class="card">
+<svg viewBox="0 0 100 100"><circle cx="50" cy="35" r="28" fill="#ff6fa5"/><circle cx="50" cy="35" r="28" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 6"/><rect x="47" y="60" width="6" height="35" rx="3" fill="#c98a4b"/></svg>
+<h3>Swirl Lollipops</h3>
+<p>Rainbow candy on a stick</p>
+</div>
+
+<div class="card">
+<svg viewBox="0 0 100 100"><ellipse cx="50" cy="55" rx="30" ry="25" fill="#c98a4b"/><ellipse cx="50" cy="40" rx="26" ry="20" fill="#ffe0b2"/><circle cx="40" cy="35" r="3" fill="#5a3a1a"/><circle cx="60" cy="35" r="3" fill="#5a3a1a"/></svg>
+<h3>Gummy Bears</h3>
+<p>Soft, chewy, fruit-flavored</p>
+</div>
+
+<div class="card">
+<svg viewBox="0 0 100 100"><path d="M30 90 L35 50 Q50 20 65 50 L70 90 Z" fill="#ffb6d9"/><rect x="25" y="88" width="50" height="8" rx="3" fill="#e88bb5"/><circle cx="50" cy="30" r="6" fill="#ff1493"/></svg>
+<h3>Cake Pops</h3>
+<p>Bite-sized frosted delights</p>
+</div>
+
+<div class="card">
+<svg viewBox="0 0 100 100"><ellipse cx="50" cy="35" rx="32" ry="14" fill="#ffd54f"/><ellipse cx="50" cy="65" rx="32" ry="14" fill="#ffd54f"/><rect x="18" y="35" width="64" height="30" fill="#fff3c4"/></svg>
+<h3>French Macarons</h3>
+<p>Delicate almond sandwich cookies</p>
+</div>
+
+<div class="card">
+<svg viewBox="0 0 100 100"><path d="M20 70 Q30 20 50 30 Q70 20 80 70 Z" fill="#f8bbd0"/><path d="M20 70 Q30 25 50 35 Q70 25 80 70 Z" fill="#fce4ec"/><rect x="45" y="70" width="10" height="25" rx="4" fill="#c98a4b"/></svg>
+<h3>Cotton Candy</h3>
+<p>Fluffy pink and blue clouds</p>
+</div>
+
+<div class="card">
+<svg viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" rx="6" fill="#6b3d1f"/><rect x="26" y="36" width="14" height="14" fill="#8b5a2b"/><rect x="44" y="36" width="14" height="14" fill="#8b5a2b"/><rect x="62" y="36" width="14" height="14" fill="#8b5a2b"/><rect x="26" y="52" width="14" height="14" fill="#8b5a2b"/><rect x="44" y="52" width="14" height="14" fill="#8b5a2b"/><rect x="62" y="52" width="14" height="14" fill="#8b5a2b"/></svg>
+<h3>Chocolate Bars</h3>
+<p>Rich, smooth, and melt-in-mouth</p>
+</div>
+
+<div class="card">
+<svg viewBox="0 0 100 100"><ellipse cx="30" cy="40" rx="10" ry="14" fill="#ff5252" transform="rotate(-20 30 40)"/><ellipse cx="50" cy="35" rx="10" ry="14" fill="#66bb6a"/><ellipse cx="70" cy="40" rx="10" ry="14" fill="#ffca28" transform="rotate(20 70 40)"/><ellipse cx="40" cy="60" rx="10" ry="14" fill="#ab47bc" transform="rotate(10 40 60)"/><ellipse cx="60" cy="60" rx="10" ry="14" fill="#42a5f5" transform="rotate(-10 60 60)"/></svg>
+<h3>Jelly Beans</h3>
+<p>Assorted fruity flavor mix</p>
+</div>
+
+<div class="card">
+<svg viewBox="0 0 100 100"><circle cx="35" cy="35" r="16" fill="#ff6fa5"/><circle cx="65" cy="35" r="16" fill="#7ed6a5"/><circle cx="50" cy="60" r="16" fill="#ffd54f"/><circle cx="35" cy="35" r="6" fill="#fff"/><circle cx="65" cy="35" r="6" fill="#fff"/><circle cx="50" cy="60" r="6" fill="#fff"/></svg>
+<h3>Rainbow Candy Mix</h3>
+<p>A colorful surprise in every bite</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="why">
+
+<h2 class="title">Why Choose Us</h2>
+<p class="subtitle">What makes every Mini Candy Shop order special</p>
+
+<div class="why-grid">
+
+<div class="item">
+<div class="icon">🍬</div>
+<h4>Handcrafted Fresh</h4>
+<p>Every candy and cake pop is made in small batches, never mass-produced, so quality stays consistently sweet.</p>
+</div>
+
+<div class="item">
+<div class="icon">🎨</div>
+<h4>Custom Themes</h4>
+<p>Tell us your celebration theme and colors — we'll design a candy collection that matches perfectly.</p>
+</div>
+
+<div class="item">
+<div class="icon">📦</div>
+<h4>Careful Packaging</h4>
+<p>Beautifully packed treats that arrive picture-perfect and ready to gift or display.</p>
+</div>
+
+<div class="item">
+<div class="icon">💕</div>
+<h4>Made With Love</h4>
+<p>Every order is treated like it's for our own celebration — with care, creativity, and a personal touch.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="about" id="about">
+
+<div class="about-visual">
+<svg viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="90" fill="#ffd6ec"/>
+<circle cx="70" cy="80" r="22" fill="#ff85c1"/>
+<circle cx="120" cy="70" r="18" fill="#ffd54f"/>
+<circle cx="110" cy="120" r="25" fill="#7ed6a5"/>
+<circle cx="150" cy="110" r="15" fill="#ff5252"/>
+<circle cx="60" cy="130" r="14" fill="#42a5f5"/>
+</svg>
+</div>
+
+<div class="about-text">
+
+<h2>About Us</h2>
+
+<p>
+<span class="pink">Mini Candy Shop</span> is a home-grown candy studio created
+by <b>K. Vishali</b>, a passionate <span class="pink">Digital Marketer</span>
+who turned her love for sweets and design into a full-time creative venture.
+</p>
+
+<p>
+What started as a small hobby of making candy favors for friends and family
+has grown into a shop known for its colorful, Instagram-worthy treats and
+attention to detail.
+</p>
+
+<p>
+We believe every celebration deserves a little extra sweetness — from
+birthday parties and baby showers to weddings and festive gifting, our
+candies are made to bring smiles and add color to your special moments.
+</p>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h2>Let's Make Something Sweet</h2>
+<p class="subtitle">Reach out for custom orders, bulk gifting, or party collaborations</p>
+
+<div class="contact-card">
+<p><strong>Name:</strong> K. Vishali</p>
+<p><strong>Business:</strong> Mini Candy Shop</p>
+<p><strong>Profession:</strong> Digital Marketer</p>
+<p><strong>Email:</strong> your@email.com</p>
+<p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Mini Candy Shop | Designed by K. Vishali
+</footer>
+
+</body>
+</html>
